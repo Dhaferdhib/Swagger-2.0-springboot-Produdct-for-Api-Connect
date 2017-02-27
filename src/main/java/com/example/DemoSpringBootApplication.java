@@ -5,7 +5,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
+import com.google.common.base.Predicates;
+
 import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
@@ -25,7 +28,7 @@ public class DemoSpringBootApplication {
 				.groupName("produits")
 				.apiInfo(ApiInfo())
 				.select()
-				.paths(regex("/produits.*"))
+				.paths(Predicates.not(PathSelectors.regex("/error.*")))
 				.build();
 	}
 
