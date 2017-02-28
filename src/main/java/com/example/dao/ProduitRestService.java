@@ -24,7 +24,7 @@ public class ProduitRestService {
 	@ApiOperation(value="getProducts",nickname="getProducts",produces="application/json")
 	@RequestMapping(value="/produits",method=RequestMethod.GET)
 	@ApiResponses(value={            
-			@ApiResponse(code = 200, message = "Success", response = Produit.class),
+			@ApiResponse(code = 200, message = "Success", response = Produit.class,responseContainer="List"),
             @ApiResponse(code = 401, message = "Unauthorized"),
             @ApiResponse(code = 403, message = "Forbidden"),
             @ApiResponse(code = 404, message = "Not Found"),
@@ -36,7 +36,7 @@ public class ProduitRestService {
 	@ApiOperation(value="getOneProduct",nickname="getOneProduct",produces="application/json")
 	@RequestMapping(value="/produits/{id}",method=RequestMethod.GET)
 	@ApiResponses(value={            
-			@ApiResponse(code = 200, message = "Success", response = Produit.class,responseContainer="List"),
+			@ApiResponse(code = 200, message = "Success", response = Produit.class),
             @ApiResponse(code = 401, message = "Unauthorized"),
             @ApiResponse(code = 403, message = "Forbidden"),
             @ApiResponse(code = 404, message = "Not Found"),
